@@ -1,0 +1,47 @@
+<div class="page-header">
+  <%= link_to apartments_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_apartment_path(@apartment), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show apartment</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Latitude:</dt>
+  <dd><%= @apartment.latitude %></dd>
+
+  <dt>Longitude:</dt>
+  <dd><%= @apartment.longitude %></dd>
+
+  <dt>Address1:</dt>
+  <dd><%= @apartment.address1 %></dd>
+
+  <dt>Address2:</dt>
+  <dd><%= @apartment.address2 %></dd>
+
+  <dt>City:</dt>
+  <dd><%= @apartment.city %></dd>
+
+  <dt>Postal code:</dt>
+  <dd><%= @apartment.postal_code %></dd>
+
+  <dt>State:</dt>
+  <dd><%= @apartment.state %></dd>
+
+  <dt>Country:</dt>
+  <dd><%= @apartment.country %></dd>
+
+  <dt>Owner name:</dt>
+  <dd><%= @apartment.owner_name %></dd>
+
+  <dt>Contact time:</dt>
+  <dd><%= @apartment.contact_time %></dd>
+
+  <dt>Phone number:</dt>
+  <dd><%= @apartment.phone_number %></dd>
+
+</dl>
