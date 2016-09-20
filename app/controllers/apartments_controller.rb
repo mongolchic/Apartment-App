@@ -25,7 +25,6 @@ class ApartmentsController < ApplicationController
   # POST /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
-
     respond_to do |format|
       if @apartment.save
         format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
