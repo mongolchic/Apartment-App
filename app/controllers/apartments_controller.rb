@@ -10,7 +10,13 @@ class ApartmentsController < ApplicationController
   # GET /apartments/1
   # GET /apartments/1.json
   def show
-  end
+  @apartments = Apartment.find(params[:id]) #@apartments may also be found using the set_apartment method provided by scaffolding
+    @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
+      marker.lat apartment.latitude
+      marker.lng apartment.longitude
+      marker.infowindow apartment.full_address
+    end
+end
 
   # GET /apartments/new
   def new
@@ -34,6 +40,17 @@ class ApartmentsController < ApplicationController
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+# add in the map location method to call on it in the js file : render the json object
+  def map_location
+    @apartment = Apartment.find(params[:apartment_id])
+    @hash = Gmaps4rails.build_markers(@apartment) do |apartment, marker|
+      marker.lat apartment.latitude
+      marker.lng apartment.longitude
+      marker.infowindow apartment.address1
+    end
+    render json: @hash.to_json
   end
 
   # PATCH/PUT /apartments/1

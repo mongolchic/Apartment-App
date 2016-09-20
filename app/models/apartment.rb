@@ -9,7 +9,12 @@ class Apartment < ActiveRecord::Base
   validates :contact_time, presence: true
   validates :phone_number, presence: true
 
-  geocoded_by :address1
+  geocoded_by :full_address
   after_validation :geocode
 
+  def full_address
+    @address1 = address1
+    @city = city
+    @full_address = (@address1 +""+ @city)
+  end
 end

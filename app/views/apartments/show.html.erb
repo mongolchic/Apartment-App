@@ -45,5 +45,5 @@
   <dd><%= @apartment.phone_number %></dd>
 
 </dl>
-
-<div id="map">Google map will appear here...</div>
+<!-- google map appear on this page with the current location and show the  location of the apartment you are looking at -->
+<div id="map" data-apartment-id="<%=@apartment.id%>">Google Map will appear here...</div>

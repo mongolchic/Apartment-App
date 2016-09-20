@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :apartments
+  resources :apartments do
+    # GET /apartmetns/:id/map_locations
+    get 'map_location'        # Add this and the "do" "end"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
