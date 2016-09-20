@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :apartments do
     # GET /apartmetns/:id/map_locations
     get 'map_location'        # Add this and the "do" "end"
