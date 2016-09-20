@@ -15,6 +15,6 @@ class Apartment < ActiveRecord::Base
   def full_address
     @address1 = address1
     @city = city
-    @full_address = (@address1 +""+ @city)
+    @full_address = (@address1 +", "+ @city)
   end
 end

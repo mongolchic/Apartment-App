@@ -39,6 +39,7 @@ function loadAndCreateGmap() {
     // the attribute is taken from the show page where the div is defined by the id with the map id attached
     var apartmentId = $('#map').attr('data-apartment-id');
 
+  
 
     $.ajax({
       dataType: 'json',

@@ -48,3 +48,20 @@
   </table>
 
 </div>
+<!-- add map to index page to show all locations of apartments, change the id to mapall to have a new map -->
+<div id="mapall" >Google Map will appear here...</div>
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {},
+    internal: {id: 'mapall'}
+  },
+  function() {
+    markers = handler.addMarkers(<%=raw @pindrop.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    // take off zoom so all locations are shows within the height and width of the map
+    handler.getMap();
+  }
+);
+</script>

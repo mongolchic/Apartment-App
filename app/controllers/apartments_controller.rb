@@ -5,6 +5,12 @@ class ApartmentsController < ApplicationController
   # GET /apartments.json
   def index
     @apartments = Apartment.all
+    # add in the pin drop from the show page to make a multiple pin drops for all apartments
+    @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
+      marker.lat apartment.latitude
+      marker.lng apartment.longitude
+      marker.infowindow apartment.full_address
+    end
   end
 
   # GET /apartments/1
@@ -48,7 +54,7 @@ end
     @hash = Gmaps4rails.build_markers(@apartment) do |apartment, marker|
       marker.lat apartment.latitude
       marker.lng apartment.longitude
-      marker.infowindow apartment.address1
+      marker.infowindow apartment.full_address
     end
     render json: @hash.to_json
   end
