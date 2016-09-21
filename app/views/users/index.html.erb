@@ -20,6 +20,7 @@
 
     <tbody>
       <%= content_tag_for(:tr, @users) do |user| %>
+            <td><%= image_tag user.avatar.url(:thumb) %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
             <td><%= link_to 'Show', user %></td>
